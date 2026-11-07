@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qué piden · Lo que piden las ofertas de informática, convertido en tu ruta</title>
+  <meta name="description" content="Pega ofertas de trabajo de informática y te decimos qué habilidades piden de verdad y en qué orden aprenderlas para poder optar al puesto. Gratis, abierto y sin registro.">
+  <meta name="theme-color" content="#1b1f2a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1f2a'/%3E%3Cpath d='M6 24 L16 10 L26 24' stroke='%23e2453b' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='10' r='4' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <span class="marca"><span class="logo" aria-hidden="true"></span>qué_piden</span>
+      <a class="boton boton--claro boton--peq" href="#comunidad">Colabora</a>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="portada">
+      <p class="antetitulo">Ofertas de informática · España</p>
+      <h1>Lo que piden las ofertas, convertido en <span>tu ruta</span></h1>
+      <p class="sub">Elige el puesto, pega las ofertas que te interesan y te decimos qué piden de verdad y en qué orden aprenderlo. Marca lo que ya sabes y te queda lo que te falta, con el tiempo que te llevará.</p>
+    </section>
+
+    <div class="rejilla">
+      <div class="panel">
+        <section class="tarjeta" aria-labelledby="t-objetivo">
+          <h2 id="t-objetivo"><span class="num">1</span> Tu objetivo</h2>
+          <form id="form" autocomplete="off">
+            <label>Puesto al que quieres optar<select id="rol"></select></label>
+            <fieldset class="opciones">
+              <legend>Tu punto de partida</legend>
+              <label class="opcion"><input type="radio" name="experiencia" value="cero"> Empiezo de cero</label>
+              <label class="opcion"><input type="radio" name="experiencia" value="trabajo"> Ya trabajo en informática</label>
+            </fieldset>
+            <label>Horas por semana que puedes dedicarle
+              <select id="horas"><option value="5">5 horas</option><option value="10">10 horas</option><option value="20">20 horas</option><option value="30">30 horas</option></select>
+            </label>
+          </form>
+        </section>
+
+        <section class="tarjeta" aria-labelledby="t-ofertas">
+          <h2 id="t-ofertas"><span class="num">2</span> Ofertas reales <small>(opcional)</small></h2>
+          <p class="ayuda">Copia el texto de una oferta de LinkedIn, InfoJobs o Tecnoempleo y pégalo aquí, una a una. Con 5 o más la ruta sale de verdad del mercado.</p>
+          <label class="oculto" for="texto-oferta">Texto de la oferta</label>
+          <textarea id="texto-oferta" rows="6" placeholder="Pega aquí el texto de la oferta…"></textarea>
+          <div class="fila-botones">
+            <button type="button" class="boton" id="anadir">Añadir oferta</button>
+            <button type="button" class="boton boton--texto" id="ejemplo">Probar con una de ejemplo</button>
+          </div>
+          <p id="estado-oferta" class="ayuda" role="status"></p>
+          <ol id="ofertas" class="ofertas"></ol>
+          <p class="privado">🔒 El texto no sale de tu navegador. Solo guardamos la primera línea y qué habilidades pide.</p>
+        </section>
+
+        <section class="tarjeta" aria-labelledby="t-sabe">
+          <h2 id="t-sabe"><span class="num">3</span> Lo que ya sabes</h2>
+          <p class="ayuda">Toca lo que ya dominas lo bastante como para usarlo en un trabajo.</p>
+          <div id="sabe" class="chips"></div>
+        </section>
+      </div>
+
+      <section class="ruta-tarjeta" aria-labelledby="t-ruta">
+        <div class="ruta__cabecera">
+          <h2 id="t-ruta">Tu ruta</h2>
+          <p class="resumen" id="resumen"></p>
+          <p class="fuente" id="fuente"></p>
+        </div>
+        <ol id="pasos" class="linea"></ol>
+        <div id="bloque-extras" hidden>
+          <h3 class="subtitulo">Si te sobra tiempo</h3>
+          <ol id="extras" class="linea linea--extra"></ol>
+        </div>
+        <p id="fin" class="fin"></p>
+        <div class="leyenda" aria-label="Leyenda">
+          <span><i class="punto punto--imprescindible"></i>Imprescindible</span>
+          <span><i class="punto punto--importante"></i>Importante</span>
+          <span><i class="punto punto--base"></i>Fundamento</span>
+          <span><i class="punto punto--extra"></i>Extra</span>
+        </div>
+        <div class="acciones">
+          <button type="button" class="boton" id="copiar">Copiar la ruta</button>
+          <button type="button" class="boton boton--secundario" id="imprimir">Imprimir</button>
+          <button type="button" class="boton boton--secundario" id="descargar" hidden>Descargar el recuento</button>
+          <button type="button" class="boton boton--texto" id="reiniciar">Empezar de cero</button>
+        </div>
+        <p id="estado-ruta" class="ayuda" role="status"></p>
+        <p class="aviso">Orientativo. La ruta base está hecha a mano y los tiempos son estimaciones; lo que cuenta es lo que piden las ofertas que pegues. Cada empresa valora además la experiencia y los proyectos propios.</p>
+      </section>
+    </div>
+
+    <section id="comunidad" class="tarjeta destacada">
+      <h2>Un proyecto abierto, hecho entre todos</h2>
+      <p>Qué piden es gratis, sin anuncios ni cursos patrocinados: las recomendaciones son neutrales. Las rutas y las habilidades están en un repositorio público para que cualquiera pueda mejorarlas.</p>
+      <ul class="lista-colabora">
+        <li><strong>Comparte tu recuento.</strong> Con «Descargar el recuento» bajas cuántas de tus ofertas piden cada cosa, sin ningún texto de las ofertas. Súbelo al repositorio y la ruta base mejorará para todos.</li>
+        <li><strong>Corrige una ruta</strong> o añade una habilidad que falte.</li>
+        <li><strong>Cuéntanos qué te ha servido</strong> si has encontrado trabajo siguiendo tu ruta.</li>
+      </ul>
+      <p id="enlace-repo" hidden><a class="boton" id="repo" href="#" target="_blank" rel="noopener">Ver el proyecto en GitHub ↗</a></p>
+      <h3>¿Te avisamos de las novedades?</h3>
+      <p>Nuevos puestos, rutas revisadas con datos de la comunidad y, más adelante, avisos cuando cambie lo que piden las ofertas de tu puesto.</p>
+      <form id="form-lista">
+        <div class="fila-form">
+          <input type="email" name="email" required placeholder="tu@email.com" aria-label="Tu email">
+          <button class="boton" type="submit">Avísame</button>
+        </div>
+        <label class="check"><input type="checkbox" name="consentimiento"> Acepto la <a href="privacidad.html">política de privacidad</a>.</label>
+      </form>
+      <p id="estado-lista" class="ayuda" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="pie contenedor">
+    <span>Qué piden · proyecto abierto en pruebas</span>
+    <a href="privacidad.html">Privacidad</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="analitica.js"></script>
+  <script src="ruta.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
