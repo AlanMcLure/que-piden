@@ -1,6 +1,6 @@
 # MVP: Qué piden (idea 19)
 
-*Nombre provisional. 31 de octubre de 2026. Ronda 5 de ideas (`../../investigacion/ideas-apps-competencia.md`, idea 19).*
+*Nombre provisional. 31 de octubre de 2026. Idea 19 de la ronda 5 de ideas de apps.*
 
 ## Propuesta
 

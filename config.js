@@ -8,5 +8,5 @@ window.CONFIG = {
   ANALITICA: "",
   // Repositorio público del proyecto (GitHub) para que la comunidad mejore las rutas y comparta
   // recuentos. Vacío = no se muestran los enlaces para colaborar.
-  REPO: "",
+  REPO: "https://github.com/AlanMcLure/que-piden",
 };
